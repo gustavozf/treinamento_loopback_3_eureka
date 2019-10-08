@@ -41,3 +41,8 @@ Dessa forma o comando **lb** estará disponível para ser utilizado, como:
 ```
 lb -h
 ```
+### Criação de Projeto
+É possível criar um projeto por meio do comando:
+```
+lb NOME_DO_PROJETO
+```
