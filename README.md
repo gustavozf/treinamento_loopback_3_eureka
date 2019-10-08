@@ -1,4 +1,4 @@
-# curso_loopback_3_eureka
+# Treinamento - Loopback 3
 
 ## Apresentação
 Introdução ao framework Loopback 3. 
@@ -32,12 +32,12 @@ O framework Loopback é um conjunto de módulos Node.js, os quais podem ser usad
 ## Início
 
 ### Instalação
-Para [instalar](https://loopback.io/doc/en/lb3/Installation.html#install-loopback-cli-tool) o Loopback 3, é necessário inserir o comando:
+Para [instalar](https://loopback.io/doc/en/lb3/Installation.html#install-loopback-cli-tool) o Loopback *command-line interface (CLI) tool*, é necessário inserir o comando:
 ```
 npm install -g loopback-cli
 ```
 
-Para utilizar a command-line interface (CLI), abra o terminal e insira o comando:
+Dessa forma o comando **lb** estará disponível para ser utilizado, como:
 ```
 lb -h
 ```
