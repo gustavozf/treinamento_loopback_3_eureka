@@ -1,4 +1,4 @@
-# curso_loopback_3_eureka
+# Treinamento - Loopback 3
 
 ## Apresentação
 Introdução ao framework Loopback 3. 
