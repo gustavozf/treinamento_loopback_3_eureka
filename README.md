@@ -14,12 +14,12 @@ O framework Loopback é um conjunto de módulos Node.js, os quais podem ser usad
 - Modelos e recursos integrados
 - Recursos de acesso e usuário 
 - Código modular e estruturado
-- (Outros)[http://voidcanvas.com/loopback-pros-and-cons/]
+- [Outros](http://voidcanvas.com/loopback-pros-and-cons/)
 
 ## Início
 
 ### Instalação
-Para (instalar)[https://loopback.io/doc/en/lb3/Installation.html#install-loopback-cli-tool] o Loopback 3, é necessário inserir o comando:
+Para [instalar](https://loopback.io/doc/en/lb3/Installation.html#install-loopback-cli-tool) o Loopback 3, é necessário inserir o comando:
 ```
 npm install -g loopback-cli
 ```
