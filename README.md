@@ -23,3 +23,8 @@ Para [instalar](https://loopback.io/doc/en/lb3/Installation.html#install-loopbac
 ```
 npm install -g loopback-cli
 ```
+
+Para utilizar a command-line interface (CLI), abra o terminal e insira o comando:
+```
+lb -h
+```
