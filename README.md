@@ -16,6 +16,19 @@ O framework Loopback é um conjunto de módulos Node.js, os quais podem ser usad
 - Código modular e estruturado
 - [Outros](http://voidcanvas.com/loopback-pros-and-cons/)
 
+### Programa
+0. Instalação
+1. Criação de um Projeto
+2. Criação de um datasource
+3. Modelos Padrões
+4. Criação de Roles
+5. Criação de Modelos 
+6. Validação de Modelos
+6. Relações entre Modelos
+7. ACLs
+8. Remote Methods
+9. Hooks
+
 ## Início
 
 ### Instalação
