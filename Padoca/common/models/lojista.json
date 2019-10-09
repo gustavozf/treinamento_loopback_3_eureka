@@ -32,6 +32,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "idUser",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [],
