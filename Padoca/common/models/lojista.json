@@ -15,7 +15,7 @@
       "type": "string",
       "required": true
     },
-    "cpf": {
+    "cnpj": {
       "type": "string",
       "required": false
     },
@@ -24,7 +24,16 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "produtos": {
+      "type": "hasMany",
+      "model": "Produto",
+      "foreignKey": "idLojista",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }

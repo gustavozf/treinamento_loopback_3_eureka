@@ -13,7 +13,10 @@
     },
     "preco": {
       "type": "number",
-      "required": true
+      "required": true,
+      "postgresql": {
+        "dataType": "money"
+      }
     },
     "marca": {
       "type": "string",

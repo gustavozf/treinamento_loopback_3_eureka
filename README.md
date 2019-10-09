@@ -145,7 +145,7 @@ Para o sistema que está sendo desenvolvido, serão criados dois modelos:
 ---------------------
 | nome : string     |
 | telefone : string |
-| cpf : string      |
+| cnpj : string      |
 | endereço : string |
 ---------------------
 ```
@@ -221,8 +221,46 @@ module.exports = function(user) {
 };
 ```
 
+Também é possível realizar validações customizadas:
+```
+Produto.validate(
+  "quantidade",
+  function(err) {
+    if (this.quantidade < 1 || !Number.isInteger(this.quantidade)) err();
+  },
+  {
+    message:
+      "O valor referente a Quantidade necessita ser um inteiro maior que zero!"
+  }
+);
+```
+
 Regexes auxíliares:
 ```
 const cpfRegex = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
+const cnpjRegex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/;
 const telefoneRegex = /^\(\d{2}\)\s9?\d{4}\-\d{4}$/;
 ```
+
+Exemplos de CPF:
+- 101.316.920-46
+- 841.650.500-40
+- 492.354.920-33
+
+Exemplos de CNPJ:
+- 95.007.326/0001-57
+- 77.939.297/0001-80
+- 26.214.367/0001-00
+
+## Relações entre Modelos
+Para relacionar dois modelos, usa-se o comando:
+```
+lb relation
+```
+
+Estão disponíveis os tipos de [relacionamentos](https://loopback.io/doc/en/lb3/Creating-model-relations.html):
+- [BelongsTo](https://loopback.io/doc/en/lb3/BelongsTo-relations.html);
+- [HasOne](https://loopback.io/doc/en/lb3/HasOne-relations.html);
+- [HasMany](https://loopback.io/doc/en/lb3/HasMany-relations.html);
+- [HasAndBelongsToMany](https://loopback.io/doc/en/lb3/HasAndBelongsToMany-relations.html);
+- etc.
