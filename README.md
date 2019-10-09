@@ -122,6 +122,12 @@ module.exports = function(app) {
 
 ```
 
-Altere o campo "dataSource" dos modelos no arquivo "server/model-config.json" de *db* para *padoca*.
+Altere o campo "dataSource" dos modelos no arquivo "server/model-config.json" de *db* para *padoca*. Como: 
+
+```
+"User": {
+  "dataSource": "padoca"
+}
+```
 
 Ressalta-se que estes métodos podem vir a gerar complicações futuras. Logo, em um problema real, o ideal seria utilizar *frameworks* externos, como o [db-migrate](https://db-migrate.readthedocs.io/en/latest/).
