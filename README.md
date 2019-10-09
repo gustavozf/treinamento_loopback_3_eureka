@@ -199,15 +199,15 @@ Lojista.find({where: {nome: "Pedro"}, limit: 3})
 
 ### Validação de Modelos
 É possível [validar](https://loopback.io/doc/en/lb3/Validating-model-data.html) os modelos inseridos, por meio das funções:
-- validatesUniquenessOf: garante a unicidade de uma determinada propriedade do modelo;
-- validatesFormatOf: valida o formato de uma determinada propriedade do modelo;
-- validatesPresenceOf: valida a presença de uma ou mais propriedades do modelo;
-- validatesAbsenceOf: valida a ausência de uma ou mais propriedades do modelo;
-- validatesInclusionOf: verifica se o valor de uma propriedade está dentre um conjunto de valores;
-- validatesExclusionOf:  verifica se o valor de uma propriedade não está dentre um conjunto de valores;
-- validatesLengthOf: valida o comprimento de uma determinada propriedade. Podendo ser especificados os valores mínimo (*min*), máximo (*max*) e equivalente (*is*);
-- validatesNumericalityOf: verifica se uma propriedade possui valor numérico;
-- validatesDateOf: verifica se uma propriedade é do tipo *Date*;
+- **validatesUniquenessOf**: garante a unicidade de uma determinada propriedade do modelo;
+- **validatesFormatOf**: valida o formato de uma determinada propriedade do modelo;
+- **validatesPresenceOf**: valida a presença de uma ou mais propriedades do modelo;
+- **validatesAbsenceOf**: valida a ausência de uma ou mais propriedades do modelo;
+- **validatesInclusionOf**: verifica se o valor de uma propriedade está dentre um conjunto de valores;
+- **validatesExclusionOf**:  verifica se o valor de uma propriedade não está dentre um conjunto de valores;
+- **validatesLengthOf**: valida o comprimento de uma determinada propriedade. Podendo ser especificados os valores mínimo (*min*), máximo (*max*) e equivalente (*is*);
+- **validatesNumericalityOf**: verifica se uma propriedade possui valor numérico;
+- **validatesDateOf**: verifica se uma propriedade é do tipo *Date*;
 
 Exemplo, supondo um arquivo *common/models/user.js*:
 ```
