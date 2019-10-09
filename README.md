@@ -19,8 +19,8 @@ O framework Loopback é um conjunto de módulos Node.js, os quais podem ser usad
 ### Programa
 0. Instalação
 1. Criação de um Projeto
-2. Criação de um datasource
-3. Modelos Padrões
+2. Modelos Padrões
+3. Criação de um datasource
 4. Criação de Roles
 5. Criação de Modelos 
 6. Validação de Modelos
@@ -46,6 +46,13 @@ lb -h
 ```
 lb NOME_DO_PROJETO
 ```
+### Modelos Padrões
+Ao ser criado um novo projeto, o Loopback dispõe de alguns [modelos base](https://loopback.io/doc/en/lb3/Using-built-in-models.html). Sendo eles:
+- **Application Model**: possui *metadata* para aplicações clientes;
+- **User model**: utilizado para realizar o registro e autenticação de usuários;
+- **Access control models**: conjunto de modelos (ACL, AccessToken, Scope, Role e RoleMapping) que controlam o acesso à aplicação, recursos e métodos.
+
+Além disso, por esses estenderem a classe *PersistedModel*, nativamente realizam operações CRUD.
 
 ## Criação de um Datasource
 Um [*datasource*](https://loopback.io/doc/en/lb3/Defining-data-sources.html) no LoopBack, representa sistemas *backend*, como: bases de dados (databases), REST APIs externas, serviços de armazenamento, etc. Provê operações de CRUD (*create*, *retrieve*, *update* e *delete*).
@@ -87,3 +94,4 @@ e insira as informações:
 ? database: padoca
 ? Instalar loopback-connector-postgresql@^3.4.0: Y
 ```
+
