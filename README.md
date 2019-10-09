@@ -23,8 +23,8 @@ O framework Loopback é um conjunto de módulos Node.js, os quais podem ser usad
 3. Criação de um datasource
 4. Criação de Modelos 
 5. Validação de Modelos
-6. Criação de Roles
-7. Relações entre Modelos
+6. Relações entre Modelos
+7. Criação de Roles
 8. ACLs
 9. Remote Methods
 10. Hooks
@@ -145,6 +145,7 @@ Para o sistema que está sendo desenvolvido, serão criados dois modelos:
 ---------------------
 | nome : string     |
 | telefone : string |
+| cpf : string      |
 | endereço : string |
 ---------------------
 ```
@@ -169,6 +170,7 @@ Para o sistema que está sendo desenvolvido, serão criados dois modelos:
 ---------------------
 | nome : string     |
 | telefone : string |
+| cpf : string      |
 | endereço : string |
 ---------------------
 ```
@@ -178,7 +180,7 @@ Obs.: Lembrar de adicionar os modelos ao *server/boot/migration.js*
 
 ### Filtros
 Utilizados para [filtrar](https://loopback.io/doc/en/lb3/Querying-data.html) a pesquisa de modelos.
-- [where](https://loopback.io/doc/en/lb3/Where-filter.html): 
+- [where](https://loopback.io/doc/en/lb3/Where-filter.html): especifica um critério de busca;
 - [fields](https://loopback.io/doc/en/lb3/Fields-filter.html): especifica os campos do modelo que deverão ser incluídos/excluídos;
 - [include](https://loopback.io/doc/en/lb3/Include-filter.html): inclui nos resultados modelos relacionados;
 - [limit](https://loopback.io/doc/en/lb3/Limit-filter.html): limita o número de instâncias retornadas;
@@ -193,4 +195,34 @@ Lojista.find({where: {nome: "Pedro"}, limit: 3})
 - REST
 ```
 (GET) /Lojistas?filter[where][nome]=Pedro&filter[limit]=3
+```
+
+### Validação de Modelos
+É possível [validar](https://loopback.io/doc/en/lb3/Validating-model-data.html) os modelos inseridos, por meio das funções:
+- validatesUniquenessOf: garante a unicidade de uma determinada propriedade do modelo;
+- validatesFormatOf: valida o formato de uma determinada propriedade do modelo;
+- validatesPresenceOf: valida a presença de uma ou mais propriedades do modelo;
+- validatesAbsenceOf: valida a ausência de uma ou mais propriedades do modelo;
+- validatesInclusionOf: verifica se o valor de uma propriedade está dentre um conjunto de valores;
+- validatesExclusionOf:  verifica se o valor de uma propriedade não está dentre um conjunto de valores;
+- validatesLengthOf: valida o comprimento de uma determinada propriedade. Podendo ser especificados os valores mínimo (*min*), máximo (*max*) e equivalente (*is*);
+- validatesNumericalityOf: verifica se uma propriedade possui valor numérico;
+- validatesDateOf: verifica se uma propriedade é do tipo *Date*;
+
+Exemplo, supondo um arquivo *common/models/user.js*:
+```
+module.exports = function(user) {
+  user.validatesPresenceOf('name', 'email');
+  user.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
+  user.validatesInclusionOf('gender', {in: ['male', 'female']});
+  user.validatesExclusionOf('domain', {in: ['www', 'billing', 'admin']});
+  user.validatesNumericalityOf('age', {int: true});
+  user.validatesUniquenessOf('email', {message: 'email is not unique'});
+};
+```
+
+Regexes auxíliares:
+```
+const cpfRegex = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
+const telefoneRegex = /^\(\d{2}\)\s9?\d{4}\-\d{4}$/;
 ```
