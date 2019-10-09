@@ -46,3 +46,44 @@ lb -h
 ```
 lb NOME_DO_PROJETO
 ```
+
+### Criação de um Datasource
+Um [*datasource*](https://loopback.io/doc/en/lb3/Defining-data-sources.html) no LoopBack, representa sistemas *backend*, como: bases de dados (databases), REST APIs externas, serviços de armazenamento, etc. Provê operações de CRUD (*create*, *retrieve*, *update* e *delete*).
+
+Para criar um novo *datasource*, usa-se o comando:
+```
+lb datasource
+```
+
+Insira as informações:
+```
+? *Insira o nome da origem de dados*: **padoca-db**
+? *Selecione o conector para padoca-db*: **PostgreSQL (suportado por StrongLoop)**
+? *Connection String url to override other settings (eg: postgres://username:password@localhost/database)*: 
+? *host*: **localhost**
+? *port*: **5435**
+? *user*: **root**
+? *password*: **root**
+? *database*: **padoca**
+? *Instalar* loopback-connector-postgresql@^3.4.0: **Y**
+```
+
+Caso tenha *docker-compose* instalado, salve em um arquivo '.yml' as informações:
+```
+version: '3.3'
+services:
+    agroturbo-api-db:
+        container_name: padoca-api-db
+        image: postgres:10.5-alpine
+        environment:
+          -  "POSTGRES_DB=padoca"
+          -  "POSTGRES_USER=root"
+          -  "POSTGRES_PASSWORD=root"
+        ports:
+          - 5432:5432
+```
+
+E execute o comando:
+```
+docker-compose -f arquivo.yml up -d
+```
