@@ -1,4 +1,13 @@
-const lbTables = ["User", "AccessToken", "ACL", "RoleMapping", "Role"];
+const lbTables = [
+  "User",
+  "AccessToken",
+  "ACL",
+  "RoleMapping",
+  "Role",
+  "Produto",
+  "Lojista",
+  "Cliente"
+];
 
 module.exports = function(app) {
   if (lbTables) {

@@ -1,0 +1,35 @@
+{
+  "name": "Produto",
+  "plural": "Produtos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "preco": {
+      "type": "number",
+      "required": true
+    },
+    "marca": {
+      "type": "string",
+      "required": true
+    },
+    "quantidade": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "categoria": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

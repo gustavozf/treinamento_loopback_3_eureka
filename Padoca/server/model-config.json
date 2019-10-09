@@ -34,5 +34,17 @@
   "Role": {
     "dataSource": "padoca",
     "public": false
+  },
+  "Lojista": {
+    "dataSource": "padoca",
+    "public": true
+  },
+  "Produto": {
+    "dataSource": "padoca",
+    "public": true
+  },
+  "Cliente": {
+    "dataSource": "padoca",
+    "public": true
   }
 }

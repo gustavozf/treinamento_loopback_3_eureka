@@ -143,9 +143,9 @@ Para o sistema que está sendo desenvolvido, serão criados dois modelos:
 ---------------------
 | Lojista           |
 ---------------------
-| Nome : string     |
-| Telefone : string |
-| Endereço : string |
+| nome : string     |
+| telefone : string |
+| endereço : string |
 ---------------------
 ```
 
@@ -154,13 +154,43 @@ Para o sistema que está sendo desenvolvido, serão criados dois modelos:
 -----------------------
 | Produto             |
 -----------------------
-| Nome : string       | 
-| Preço : number      | 
-| Marca : string      | 
-| Quantidade : number |
-| Categoria : string  |
+| nome : string       | 
+| preço : number      | 
+| marca : string      | 
+| quantidade : number |
+| categoria : string  |
 -----------------------
 ```
 
+- Cliente
+```
+---------------------
+| Lojista           |
+---------------------
+| nome : string     |
+| telefone : string |
+| endereço : string |
+---------------------
+```
+
+
+Obs.: Lembrar de adicionar os modelos ao *server/boot/migration.js*
+
 ### Filtros
-É possível filtrar a pesquisa de modelos
+Utilizados para [filtrar](https://loopback.io/doc/en/lb3/Querying-data.html) a pesquisa de modelos.
+- [where](https://loopback.io/doc/en/lb3/Where-filter.html): 
+- [fields](https://loopback.io/doc/en/lb3/Fields-filter.html): especifica os campos do modelo que deverão ser incluídos/excluídos;
+- [include](https://loopback.io/doc/en/lb3/Include-filter.html): inclui nos resultados modelos relacionados;
+- [limit](https://loopback.io/doc/en/lb3/Limit-filter.html): limita o número de instâncias retornadas;
+- [order](https://loopback.io/doc/en/lb3/Order-filter.html): especifica um determinado critério de ordem (ASC ou DSC).
+
+Exemplos:
+- JS
+```
+Lojista.find({where: {nome: "Pedro"}, limit: 3})
+```
+
+- REST
+```
+(GET) /Lojistas?filter[where][nome]=Pedro&filter[limit]=3
+```
