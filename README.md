@@ -57,15 +57,15 @@ lb datasource
 
 Insira as informações:
 ```
-? *Insira o nome da origem de dados*: **padoca-db**
-? *Selecione o conector para padoca-db*: **PostgreSQL (suportado por StrongLoop)**
-? *Connection String url to override other settings (eg: postgres://username:password@localhost/database)*: 
-? *host*: **localhost**
-? *port*: **5435**
-? *user*: **root**
-? *password*: **root**
-? *database*: **padoca**
-? *Instalar* loopback-connector-postgresql@^3.4.0: **Y**
+? Insira o nome da origem de dados: padoca-db
+? Selecione o conector para padoca-db: PostgreSQL (suportado por StrongLoop)
+? Connection String url to override other settings (eg: postgres://username:password@localhost/database): 
+? host: localhost
+? port: 5432
+? user: root
+? password: root
+? database: padoca
+? Instalar loopback-connector-postgresql@^3.4.0: Y
 ```
 
 Caso tenha *docker-compose* instalado, salve em um arquivo '.yml' as informações:
