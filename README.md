@@ -21,13 +21,13 @@ O framework Loopback é um conjunto de módulos Node.js, os quais podem ser usad
 1. Criação de um Projeto
 2. Modelos Padrões
 3. Criação de um datasource
-4. Criação de Roles
-5. Criação de Modelos 
-6. Validação de Modelos
-6. Relações entre Modelos
-7. ACLs
-8. Remote Methods
-9. Hooks
+4. Criação de Modelos 
+5. Validação de Modelos
+6. Criação de Roles
+7. Relações entre Modelos
+8. ACLs
+9. Remote Methods
+10. Hooks
 
 ## Início
 
@@ -123,7 +123,6 @@ module.exports = function(app) {
 ```
 
 Altere o campo "dataSource" dos modelos no arquivo "server/model-config.json" de *db* para *padoca*. Como: 
-
 ```
 "User": {
   "dataSource": "padoca"
@@ -131,3 +130,37 @@ Altere o campo "dataSource" dos modelos no arquivo "server/model-config.json" de
 ```
 
 Ressalta-se que estes métodos podem vir a gerar complicações futuras. Logo, em um problema real, o ideal seria utilizar *frameworks* externos, como o [db-migrate](https://db-migrate.readthedocs.io/en/latest/).
+
+## Criação de Modelos
+Pra criar [modelos](https://loopback.io/doc/en/lb3/Using-the-model-generator.html), use o comando:
+```
+lb model NOME_MODELO
+```
+
+Para o sistema que está sendo desenvolvido, serão criados dois modelos:
+- Lojista
+```
+---------------------
+| Lojista           |
+---------------------
+| Nome : string     |
+| Telefone : string |
+| Endereço : string |
+---------------------
+```
+
+- Produto
+```
+-----------------------
+| Produto             |
+-----------------------
+| Nome : string       | 
+| Preço : number      | 
+| Marca : string      | 
+| Quantidade : number |
+| Categoria : string  |
+-----------------------
+```
+
+### Filtros
+É possível filtrar a pesquisa de modelos
