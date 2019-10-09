@@ -14,25 +14,25 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "padoca"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "padoca",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "padoca",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "padoca",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "padoca",
     "public": false
   }
 }

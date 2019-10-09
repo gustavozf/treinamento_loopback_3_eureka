@@ -84,8 +84,8 @@ lb datasource
 
 e insira as informações:
 ```
-? Insira o nome da origem de dados: padoca-db
-? Selecione o conector para padoca-db: PostgreSQL (suportado por StrongLoop)
+? Insira o nome da origem de dados: padoca
+? Selecione o conector para padoca: PostgreSQL (suportado por StrongLoop)
 ? Connection String url to override other settings (eg: postgres://username:password@localhost/database): 
 ? host: localhost
 ? port: 5432
@@ -95,3 +95,33 @@ e insira as informações:
 ? Instalar loopback-connector-postgresql@^3.4.0: Y
 ```
 
+### Migração dos Modelos
+Para [migrar](https://loopback.io/doc/en/lb3/Implementing-auto-migration.html) os modelos para o BD, é possível utilizar funções prontas do Loopback, como:
+- **automigrate**: Derruba os objetos do BD, se existentes, e os recria tendo como base as definições de modelos. Logo, os dados existentes serão perdidos; 
+- **autoupdate**: Altera os objetos do BD, tendo como base as diferenças perceptíveis dos modelos definidos e dos objetos existentes. Mantém os dados existentes. 
+
+Para criar tabelas no *datasource* recém criado, tendo em base os modelos existentes até então, insira o seguinte código em um arquivo ".js" na pasta */server/boot*:
+```
+const lbTables = [
+  "User",
+  "AccessToken",
+  "ACL",
+  "RoleMapping",
+  "Role"
+];
+
+module.exports = function(app) {
+  if (lbTables) {
+    app.dataSources.padoca.autoupdate(lbTables, function(err) {
+      if (err) throw err;
+
+      console.log("Models created!\n");
+    });
+  }
+};
+
+```
+
+Altere o campo "dataSource" dos modelos no arquivo "server/model-config.json" de *db* para *padoca*.
+
+Ressalta-se que estes métodos podem vir a gerar complicações futuras. Logo, em um problema real, o ideal seria utilizar *frameworks* externos, como o [db-migrate](https://db-migrate.readthedocs.io/en/latest/).
