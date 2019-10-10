@@ -1,0 +1,50 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "padoca"
+  },
+  "AccessToken": {
+    "dataSource": "padoca",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "padoca",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "padoca",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "padoca",
+    "public": false
+  },
+  "Lojista": {
+    "dataSource": "padoca",
+    "public": true
+  },
+  "Produto": {
+    "dataSource": "padoca",
+    "public": true
+  },
+  "Cliente": {
+    "dataSource": "padoca",
+    "public": true
+  }
+}
