@@ -145,7 +145,7 @@ Para o sistema que está sendo desenvolvido, serão criados dois modelos:
 ---------------------
 | nome : string     |
 | telefone : string |
-| cnpj : string      |
+| cnpj : string     |
 | endereço : string |
 ---------------------
 ```
