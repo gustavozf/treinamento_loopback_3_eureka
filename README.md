@@ -166,7 +166,7 @@ Para o sistema que está sendo desenvolvido, serão criados dois modelos:
 - Cliente
 ```
 ---------------------
-| Lojista           |
+| Cliente           |
 ---------------------
 | nome : string     |
 | telefone : string |
