@@ -22,4 +22,9 @@ module.exports = function(Produto) {
         "O valor referente ao preco necessita ser um inteiro maior que zero!"
     }
   );
+
+  Produto.observe("access", async function(ctx) {
+    console.log("Produto acessado!");
+    return;
+  });
 };

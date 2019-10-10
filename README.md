@@ -325,3 +325,62 @@ Exemplos:
   "property": "create"
 }
 ```
+## Remote Methods
+Um [remote method](https://loopback.io/doc/en/lb3/Remote-methods.html), é um método de um modelo disponível por um *endpoint* customizado. É utilizado para o desenvolvimento de operações não providas pelo Loopback.
+
+Para a criação destas, é necessário:
+- Desenvolver uma função no arquivo *.js* correspondente do modelo;
+- Registrar o *remote method*. Sendo possível que isso seja realizado tanto no arquivo JSON quanto no arquivo *.js* de um modelo.
+
+Para expor uma função por meio de um *remote method*, como uma função JS:
+```
+MODELO.remoteMethod('nome_da_funcao', {
+  accepts: {arg: 'nome_argumento', type: 'tipo', required: boolean},
+  returns: {arg: 'objeto_retorno', type: 'tipo'},
+  http: {path: "endpoint", verb: "post/get/etc"}
+});
+```
+Opcionalmene, é possível passar um argumento pelo corpo da requisição *http*
+```
+http: { source: "body" }
+```
+
+É possível também passar um informação pelo próprio *endpoint*, como:
+```
+accepts: {arg: "id", type: "number", required: true},
+returns: {arg: "createdObjs", type: "Object"},
+http: { path: "/:id/endpoint", verb: "post" }
+```
+
+Para facilitar a manipilação dos dados, é possível criar [transações](https://loopback.io/doc/en/lb3/Using-database-transactions.html).
+```
+app.dataSources.MEU_DATASOURCE.transactions(FUNCAO_EXECUCAO, OPCOES, CALLBACK_ERROR)
+```
+
+## Operation Hooks
+[Operation Hooks](https://loopback.io/doc/en/lb3/Operation-hooks.html) são operações executadas antes ou após a chamada de um determinado conjunto de métodos. 
+
+No arquivo *.js* de um determinado modelo, deve ser definida a função:
+```
+MODELO.observe(NOME, function(ctx, next){
+  ...
+  next();
+});
+```
+
+ou na versão usando *async/await*
+```
+MODELO.observe(NOME, async function(ctx){
+  ...
+  return;
+});
+```
+
+Ressalta-se que *nome* representa uma dentre as opções:
+- access
+- before save
+- after save
+- before delete
+- after delete
+- loaded
+- persist
