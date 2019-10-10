@@ -137,7 +137,7 @@ Pra criar [modelos](https://loopback.io/doc/en/lb3/Using-the-model-generator.htm
 lb model NOME_MODELO
 ```
 
-Para o sistema que está sendo desenvolvido, serão criados dois modelos:
+Para o sistema que está sendo desenvolvido, serão criados três modelos:
 - Lojista
 ```
 ---------------------
