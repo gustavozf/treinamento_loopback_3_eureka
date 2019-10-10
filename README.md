@@ -183,7 +183,7 @@ Utilizados para [filtrar](https://loopback.io/doc/en/lb3/Querying-data.html) a p
 - [fields](https://loopback.io/doc/en/lb3/Fields-filter.html): especifica os campos do modelo que deverão ser incluídos/excluídos;
 - [include](https://loopback.io/doc/en/lb3/Include-filter.html): inclui nos resultados modelos relacionados;
 - [limit](https://loopback.io/doc/en/lb3/Limit-filter.html): limita o número de instâncias retornadas;
-- [order](https://loopback.io/doc/en/lb3/Order-filter.html): especifica um determinado critério de ordem (ASC ou DSC).
+- [order](https://loopback.io/doc/en/lb3/Order-filter.html): especifica um determinado critério de ordem (ASC ou DESC).
 
 Exemplos:
 - JS
