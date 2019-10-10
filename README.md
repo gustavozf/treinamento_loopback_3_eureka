@@ -264,3 +264,64 @@ Estão disponíveis os tipos de [relacionamentos](https://loopback.io/doc/en/lb3
 - [HasMany](https://loopback.io/doc/en/lb3/HasMany-relations.html);
 - [HasAndBelongsToMany](https://loopback.io/doc/en/lb3/HasAndBelongsToMany-relations.html);
 - etc.
+
+## Modelos de Controle de Acesso
+### Roles
+É possível definir dois tipos de [Roles](https://loopback.io/doc/en/lb3/Defining-and-using-roles.html):
+- **Estáticos**: aqueles que são armazenados em um *data source* e são mapeados aos usuários;
+- **Dinâmicos**: não são designados aos usuários e são determinados durante o acesso.
+
+O Loopback possui três tipos de roles dinâmicos:
+- **$owner**: dono do objeto;
+- **$authenticated**: usuários autenticados;
+- **$unauthenticated**: usuários não autenticados; 
+- **$everyone**: todos.
+
+### RoleMapping
+Mapeia roles estáticos à IDs de usuários. Estrutura de criação:
+
+```
+RoleMapping.create(
+  {
+    principalType: RoleMapping.USER,
+    principalId: ID_USUARIO,
+    roleId: ID_ROLE
+  }
+);
+```
+
+### Access Control Lists (ACLs)
+Controlam a autorização de acesso do usuários para partes específicas de um determinado modelo. Para que isso seja realizado, são utilizados dos roles (estáticos e dinâmicos). Podendo ser mapeados conjuntos de operações (definidos de acordo com o tipo de acesso) ou operações específicas.
+
+Dessa forma, as [ACLs](https://loopback.io/doc/en/lb3/Controlling-data-access.html) podem mapear os tipos de acesso: 
+- READ: exists, findById, find, findOne, count;
+- WRITE: create, updateAttribute, upsert (update or insert), destroyById;
+- EXECUTE: qualquer outro tipo de método, incluindo métodos customizados.
+
+Para criar uma nova ACL, utiliza-se o comando:
+```
+lb acl
+```
+
+Exemplos:
+```
+{
+  "accessType": "*",
+  "principalType": "ROLE",
+  "principalId": "$everyone",
+  "permission": "DENY"
+},
+{
+  "accessType": "*",
+  "principalType": "ROLE",
+  "principalId": "$authenticated",
+  "permission": "ALLOW"
+},
+{
+  "accessType": "WRITE",
+  "principalType": "ROLE",
+  "principalId": "$everyone",
+  "permission": "ALLOW",
+  "property": "create"
+}
+```
