@@ -19,15 +19,15 @@ O framework Loopback é um conjunto de módulos Node.js, os quais podem ser usad
 ### Programa
 0. Instalação
 1. Criação de um Projeto
-2. Criação de um datasource
-3. Modelos Padrões
-4. Criação de Roles
-5. Criação de Modelos 
-6. Validação de Modelos
+2. Modelos Padrões
+3. Criação de um datasource
+4. Criação de Modelos 
+5. Validação de Modelos
 6. Relações entre Modelos
-7. ACLs
-8. Remote Methods
-9. Hooks
+7. Criação de Roles
+8. ACLs
+9. Remote Methods
+10. Hooks
 
 ## Início
 
