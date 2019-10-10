@@ -1,6 +1,5 @@
 # Treinamento - Loopback 3
 
-## Apresentação
 Introdução ao framework Loopback 3. 
 "Como criar um projeto  e  ter uma api REST completa em poucos passos".
 
