@@ -145,7 +145,7 @@ Para o sistema que está sendo desenvolvido, serão criados dois modelos:
 ---------------------
 | nome : string     |
 | telefone : string |
-| cnpj : string      |
+| cnpj : string     |
 | endereço : string |
 ---------------------
 ```
@@ -294,9 +294,9 @@ RoleMapping.create(
 Controlam a autorização de acesso do usuários para partes específicas de um determinado modelo. Para que isso seja realizado, são utilizados dos roles (estáticos e dinâmicos). Podendo ser mapeados conjuntos de operações (definidos de acordo com o tipo de acesso) ou operações específicas.
 
 Dessa forma, as [ACLs](https://loopback.io/doc/en/lb3/Controlling-data-access.html) podem mapear os tipos de acesso: 
-- READ: exists, findById, find, findOne, count;
-- WRITE: create, updateAttribute, upsert (update or insert), destroyById;
-- EXECUTE: qualquer outro tipo de método, incluindo métodos customizados.
+- **READ**: exists, findById, find, findOne, count;
+- **WRITE**: create, updateAttribute, upsert (update or insert), destroyById;
+- **EXECUTE**: qualquer outro tipo de método, incluindo métodos customizados.
 
 Para criar uma nova ACL, utiliza-se o comando:
 ```
